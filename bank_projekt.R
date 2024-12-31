@@ -32,3 +32,31 @@ dane_list[[1]] [2,]
 
 dane_list[[1]] [2,3:dim(dane_list[[1]])[2]]
 as.numeric(dane_list[[1]] [2,3:dim(dane_list[[1]])[2]])
+
+dane_2 <- as.numeric(unlist(dane_list[[1]][2, 3:dim(dane_list[[1]])[2]]))
+
+
+wyniki <- list()
+
+# Przetwarzanie danych z każdego arkusza
+for (i in 1:length(dane_list)) {
+  # Pobranie drugiego i trzeciego wiersza (od 3 kolumny do końca)
+  wiersz_2 <- as.numeric(unlist(dane_list[[i]][2, 3:dim(dane_list[[i]])[2]]))
+  wiersz_3 <- as.numeric(unlist(dane_list[[i]][3, 3:dim(dane_list[[i]])[2]]))
+   
+  # Zapisanie wyników do listy
+  wyniki[[i]] <- list(
+    wiersz_2 = wiersz_2,
+    wiersz_3 = wiersz_3
+  )
+}
+
+# Dane z drugiego wiersza z pierwszego arkusza
+print(wyniki[[1]]$wiersz_2)
+
+# Dane z trzeciego wiersza z drugiego arkusza
+print(wyniki[[2]]$wiersz_3)
+
+
+str(wyniki[[1]])
+
