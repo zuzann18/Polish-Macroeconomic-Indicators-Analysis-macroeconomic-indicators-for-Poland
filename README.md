@@ -1,77 +1,32 @@
-# Bank
-# Opis danych - Projekt analizy makroekonomicznej
+# Polish Macroeconomic Indicators Analysis
 
-## 1. Plik danych: dane_kw.xlsx
-Plik zawiera dane makroekonomiczne podzielone na 5 arkuszy, które reprezentują różne wskaźniki ekonomiczne. Dane te będą wykorzystane do analizy trendów gospodarczych oraz modelowania predykcyjnego.
+## Overview
+This repository provides quarterly macroeconomic indicators for Poland, organized in an Excel file (**dane_kw.xlsx**). It supports the analysis of economic trends and predictive modeling of Poland's economy.
 
-## 2. Struktura danych
+## Dataset Structure
+1. **GDP (PKB)**
+   - Quarterly GDP in millions of PLN  
+   - Year-over-year and quarter-over-quarter growth rates  
 
-### Arkusze:
+2. **Unemployment (Bezrobocie)**
+   - Quarterly unemployment rate  
+   - Expressed as a percentage of the labor force  
 
-#### 1. PKB (Produkt Krajowy Brutto)
-- **Opis:** Dane dotyczące PKB w poszczególnych okresach czasowych.
-- **Kolumny:**
-  - Data: Data w formacie YYYY-MM-DD.
-  - Wartość: Wartość PKB w milionach złotych.
+3. **Inflation (Inflacja)**
+   - Multiple inflation metrics (CPI, PPI)  
+   - Year-over-year and quarter-over-quarter changes  
 
-#### 2. Bezrobocie
-- **Opis:** Stopa bezrobocia w różnych okresach.
-- **Kolumny:**
-  - Data: Data w formacie YYYY-MM-DD.
-  - Wartość: Procentowy poziom bezrobocia (%).
+4. **Interest Rates (Stopa NBP)**
+   - Key rates by the National Bank of Poland (rediscount, lombard, reference)  
+   - Expressed as end-of-quarter percentages  
 
-#### 3. Inflacja
-- **Opis:** Dane dotyczące wskaźników inflacyjnych.
-- **Kolumny:**
-  - Data: Data w formacie YYYY-MM-DD.
-  - Wartość: Procentowy poziom inflacji (%).
+5. **Monetary Aggregate M3**
+   - Broad money supply (in millions of PLN)  
+   - Quarterly and annual growth rates  
 
-#### 4. Stopy procentowe
-- **Opis:** Historyczne dane na temat poziomu stóp procentowych.
-- **Kolumny:**
-  - Data: Data w formacie YYYY-MM-DD.
-  - Wartość: Wysokość stopy procentowej (%).
-  - Analiza danych z arkusza "Stopa NBP"
-Podgląd danych pokazuje, że:
-
-Pierwsze kilka wierszy to opisy danych, a nie wartości liczbowe – wymagają one przefiltrowania.
-Dane dotyczą różnych rodzajów stóp procentowych (np. redyskontowa, lombardowa, referencyjna).
-Wartości procentowe zaczynają się dopiero od wiersza 3 (0-indeks, czyli 4. wiersz Excela).
-Kolumny zawierają lata, kwartały i wartości stóp procentowych, ale mają niejednolitą strukturę.
-
-#### 5. Wskaźniki finansowe
-- **Opis:** Różne wskaźniki związane z analizą finansową.
-- **Kolumny:**
-  - Data: Data w formacie YYYY-MM-DD.
-  - Wartość: Wskaźnik finansowy (np. kurs walut, indeksy giełdowe).
-
-## 3. Szczegóły dotyczące brakujących danych
-Dane zawierają pewne braki (wartości NA), które nie będą usuwane ani zastępowane, ponieważ mogą być istotne dla analizy. Braki będą traktowane jako brakujące obserwacje wymagające specjalnego traktowania podczas analizy.
-
-## 4. Format i typ danych
-- **Data:** Wszystkie daty są w formacie YYYY-MM-DD.
-- **Wartość:** Dane numeryczne, reprezentujące wartości ekonomiczne, procentowe lub indeksowe.
-- **Kategorie:** Niektóre arkusze mogą zawierać dodatkowe kolumny opisujące typ danych.
-
-## 5. Cel analizy
-Dane te zostaną wykorzystane do:
-- Analizy korelacji między wskaźnikami makroekonomicznymi.
-- Modelowania predykcyjnego trendów gospodarczych.
-- Oceny zależności między poziomem bezrobocia, inflacją i wzrostem gospodarczym.
-
-## 6. Przykładowy kod do analizy danych
-```R
-library(readxl)
-plik <- 'dane_kw.xlsx'
-dane_list <- list()
-for (i in 1:5) {
-  dane_list[[i]] <- read_xlsx(plik, sheet = i)
-}
-# Przykładowy podgląd danych z arkusza 5
-head(dane_list[[5]])
-```
-
-## 7. Uwagi końcowe
-- Dane są wstępnie przygotowane do analizy bez usuwania brakujących wartości ani outlierów.
-- Interpretacja wyników będzie uwzględniać kontekst ekonomiczny oraz specyfikę brakujących danych.
+## Data Specifications
+- **Format**: Time series data with YYYY-MM-DD dates  
+- **Units**: Indicators in %, PLN millions, or index values  
+- **Categorical Descriptors**: Additional classification columns  
+- **Quality**: Contains NA values; no data cleaning or outlier removal  
 
