@@ -31,6 +31,13 @@ Plik zawiera dane makroekonomiczne podzielone na 5 arkuszy, które reprezentują
 - **Kolumny:**
   - Data: Data w formacie YYYY-MM-DD.
   - Wartość: Wysokość stopy procentowej (%).
+  - Analiza danych z arkusza "Stopa NBP"
+Podgląd danych pokazuje, że:
+
+Pierwsze kilka wierszy to opisy danych, a nie wartości liczbowe – wymagają one przefiltrowania.
+Dane dotyczą różnych rodzajów stóp procentowych (np. redyskontowa, lombardowa, referencyjna).
+Wartości procentowe zaczynają się dopiero od wiersza 3 (0-indeks, czyli 4. wiersz Excela).
+Kolumny zawierają lata, kwartały i wartości stóp procentowych, ale mają niejednolitą strukturę.
 
 #### 5. Wskaźniki finansowe
 - **Opis:** Różne wskaźniki związane z analizą finansową.
