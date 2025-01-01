@@ -30,3 +30,18 @@ This repository provides quarterly macroeconomic indicators for Poland, organize
 - **Categorical Descriptors**: Additional classification columns  
 - **Quality**: Contains NA values; no data cleaning or outlier removal  
 
+## Code Tasks
+This code performs the following tasks:
+- Imports necessary libraries and sets up the working environment  
+- Loads data from multiple sheets in the Excel file  
+- Processes the data, converting relevant rows to numeric format  
+- Displays results and data structure for each sheet  
+- Conducts time trend analysis for GDP and inflation using **ggplot2**  
+- Performs correlation analysis for interest rates  
+- Calculates the correlation coefficient between interest rates  
+- Checks for missing values in each sheet  
+
+## Research Applications
+- Correlation analyses among economic indicators  
+- Predictive modeling of trends  
+- Exploring relationships between unemployment, inflation, and GDP  
