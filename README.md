@@ -35,25 +35,38 @@ This repository provides quarterly macroeconomic indicators for Poland, organize
 ## GDP Growth Analysis
 ![image](https://github.com/user-attachments/assets/cf5407fb-0dba-40ef-846a-6b5ebf9d6ea9)
 
-Overall Trend
+Based on the GDP trend visualization for Poland (2007-2022), here's the analysis to accompany the README:
+
+## GDP Growth Analysis
+
+### Overall Trend
 The graph shows significant fluctuations in Poland's GDP growth rate over the 2007-2022 period, with several notable phases:
-Key Periods
-2007-2009: Started strong with growth rates above 106%, followed by a gradual decline
-2010-2011: Recovery period with growth rates stabilizing around 104-105%
-2012-2013: Slowdown period with growth dropping to approximately 100-101%
-2014-2016: Stable growth period maintaining around 103-104%
-2019-2020: Sharp decline during the pandemic, reaching a low of 92.15%
-2021-2022: Strong recovery with growth peaking at 112.24%, followed by normalization
-Notable Features
-Highest Peak: Approximately 112.24% growth in 2021
-Lowest Point: 92.15% during the 2020 crisis
-Recovery Pattern: V-shaped recovery post-2020
-Pre-Pandemic Stability: Relatively stable growth rates between 104-106% during 2015-2019
-Technical Characteristics
-Data Frequency: Quarterly measurements
-Measurement Unit: Year-over-year percentage change
-Time Range: 2007 Q1 to 2022 Q4
-Missing Data: Some gaps in the latest periods of 2022
+
+### Key Periods
+- **2007-2009**: Started strong with growth rates above 106%, followed by a gradual decline
+- **2010-2011**: Recovery period with growth rates stabilizing around 104-105%
+- **2012-2013**: Slowdown period with growth dropping to approximately 100-101%
+- **2014-2016**: Stable growth period maintaining around 103-104%
+- **2019-2020**: Sharp decline during the pandemic, reaching a low of 92.15%
+- **2021-2022**: Strong recovery with growth peaking at 112.24%, followed by normalization
+
+### Notable Features
+- **Highest Peak**: Approximately 112.24% growth in 2021
+- **Lowest Point**: 92.15% during the 2020 crisis
+- **Recovery Pattern**: V-shaped recovery post-2020
+- **Pre-Pandemic Stability**: Relatively stable growth rates between 104-106% during 2015-2019
+
+### Technical Characteristics
+- **Data Frequency**: Quarterly measurements
+- **Measurement Unit**: Year-over-year percentage change
+- **Time Range**: 2007 Q1 to 2022 Q4
+- **Missing Data**: Some gaps in the latest periods of 2022
+
+This analysis provides context for the GDP visualization in the repository's documentation, highlighting key economic phases in Poland's recent history.
+
+Citations:
+[1] https://pplx-res.cloudinary.com/image/upload/v1735825327/user_uploads/PBwcgvaUUUIdSoC/image.jpg
+[2] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/38442079/00dc0877-12c9-411b-91cc-2eb2a69e8c4e/dane_kw.xlsx
 
 ## Code Tasks
 This code performs the following tasks:
