@@ -35,7 +35,6 @@ This repository provides quarterly macroeconomic indicators for Poland, organize
 ## GDP Growth Analysis
 ![image](https://github.com/user-attachments/assets/cf5407fb-0dba-40ef-846a-6b5ebf9d6ea9)
 
-Based on the GDP trend visualization for Poland (2007-2022), here's the analysis to accompany the README:
 
 ## GDP Growth Analysis
 
@@ -62,11 +61,6 @@ The graph shows significant fluctuations in Poland's GDP growth rate over the 20
 - **Time Range**: 2007 Q1 to 2022 Q4
 - **Missing Data**: Some gaps in the latest periods of 2022
 
-This analysis provides context for the GDP visualization in the repository's documentation, highlighting key economic phases in Poland's recent history.
-
-Citations:
-[1] https://pplx-res.cloudinary.com/image/upload/v1735825327/user_uploads/PBwcgvaUUUIdSoC/image.jpg
-[2] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/38442079/00dc0877-12c9-411b-91cc-2eb2a69e8c4e/dane_kw.xlsx
 
 ## Code Tasks
 This code performs the following tasks:
