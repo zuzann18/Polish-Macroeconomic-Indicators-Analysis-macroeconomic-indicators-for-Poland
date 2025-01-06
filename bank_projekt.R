@@ -94,28 +94,36 @@ for (i in 1:length(results)) {
 # ============================================
 
 # 11. Time trend analysis for GDP (Sheet 1)
+library(TSstudio)
+for (i in c(1:dim(tfinal)[2])){
+  A<- ts(tfinal[,i], frequency = 4, start = c(2007, 1))
+  print(ts_plot(A,Ytitle=colnames(tfinal)[i]))
+}
 gdp_data <- data.frame(
   index = 1:length(results[[1]]$row_2),
   gdp = results[[1]]$row_2
 )
 
-ggplot(gdp_data, aes(x = index, y = gdp)) +
-  geom_line(color = "blue") +
-  geom_point(color = "blue") +
-  labs(title = "Time Trend of GDP (Sheet 1)", x = "Time", y = "GDP") +
-  theme_minimal()
+gdp_data$gdp
+gdp_data[[2]]
+gdp_data[,2]
+gdp_ts <-ts(gdp_data$gdp, start =c(2007,1), frequency = 4)
+ts_plot(gdp_ts, title = "GDP Trends in Poland (2007-2022)", Ytitle ="GDP (Millions PLN)", Xtitle ="Year" )
 
-# 12. Time trend analysis for Inflation (Sheet 3)
+# 12. Time Trend Analysis for Inflation (Sheet 3)
 inflation_data <- data.frame(
   index = 1:length(results[[3]]$row_2),
   inflation = results[[3]]$row_2
 )
+inflation_ts <-ts(inflation_data$inflation, start =c(2007,1), frequency = 4)
+ts_plot(inflation_ts, title = "Inflation Trends in Poland (2007-2022)", Ytitle ="Inflation (Millions PLN)", Xtitle ="Year" )
 
-ggplot(inflation_data, aes(x = index, y = inflation)) +
-  geom_line(color = "green") +
-  geom_point(color = "green") +
-  labs(title = "Time Trend of Inflation (Sheet 3)", x = "Time", y = "Inflation (%)") +
-  theme_minimal()
+gdp_ts_componets <-decompose(gdp_ts)
+plot(gdp_ts_componets)
+gdp_ts_componets <-decompose(gdp_ts)
+plot(gdp_ts_componets)
+
+gdp_ts_componets_seasoanllyadjusted <-gdp_ts - gdp_ts_componets$
 
 # 13. Correlation analysis for Interest Rates (Sheet 4)
 interest_rate_data <- data.frame(
