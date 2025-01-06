@@ -94,11 +94,7 @@ for (i in 1:length(results)) {
 # ============================================
 
 # 11. Time trend analysis for GDP (Sheet 1)
-library(TSstudio)
-for (i in c(1:dim(tfinal)[2])){
-  A<- ts(tfinal[,i], frequency = 4, start = c(2007, 1))
-  print(ts_plot(A,Ytitle=colnames(tfinal)[i]))
-}
+
 gdp_data <- data.frame(
   index = 1:length(results[[1]]$row_2),
   gdp = results[[1]]$row_2
