@@ -42,9 +42,9 @@ data_list[[5]]
 # Fetch the second row
 data_list[[1]][2,]
 
-data_list[[1]] [2,3:dim(dane_list[[1]])[2]]
+data_list[[1]] [2,3:dim(data_list[[1]])[2]]
 # Convert the data to numeric type
-as.numeric(dane_list[[1]] [2,3:dim(dane_list[[1]])[2]])
+as.numeric(data_list[[1]] [2,3:dim(data_list[[1]])[2]])
 
 gdp_row_2 <- as.numeric(unlist(data_list[[1]][2, 3:dim(data_list[[1]])[2]]))
 
