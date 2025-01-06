@@ -105,6 +105,8 @@ gdp_data[[2]]
 gdp_data[,2]
 gdp_ts <-ts(gdp_data$gdp, start =c(2007,1), frequency = 4)
 ts_plot(gdp_ts, title = "GDP Trends in Poland (2007-2022)", Ytitle ="GDP (Millions PLN)", Xtitle ="Year" )
+gdp_ts_componets <-decompose(gdp_ts)
+plot(gdp_ts_componets)
 
 # 12. Time Trend Analysis for Inflation (Sheet 3)
 inflation_data <- data.frame(
@@ -114,27 +116,67 @@ inflation_data <- data.frame(
 inflation_ts <-ts(inflation_data$inflation, start =c(2007,1), frequency = 4)
 ts_plot(inflation_ts, title = "Inflation Trends in Poland (2007-2022)", Ytitle ="Inflation (Millions PLN)", Xtitle ="Year" )
 
-gdp_ts_componets <-decompose(gdp_ts)
-plot(gdp_ts_componets)
-gdp_ts_componets <-decompose(gdp_ts)
-plot(gdp_ts_componets)
 
-gdp_ts_componets_seasoanllyadjusted <-gdp_ts - gdp_ts_componets$
+# Dekompozycja Addytywna
+gdp_ts_components_add <- decompose(gdp_ts, type = "additive")
+plot(gdp_ts_components_add)
 
-# 13. Correlation analysis for Interest Rates (Sheet 4)
-interest_rate_data <- data.frame(
-  rate_1 = results[[4]]$row_2,
-  rate_2 = results[[4]]$row_3
+# Dekompozycja Multiplikatywna
+gdp_ts_components_mult <- decompose(gdp_ts, type = "multiplicative")
+plot(gdp_ts_components_mult)
+
+# Sezonowo skorygowany szereg czasowy
+gdp_seasonally_adjusted_add <- gdp_ts - gdp_ts_components_add$seasonal
+gdp_seasonally_adjusted_mult <- gdp_ts / gdp_ts_components_mult$seasonal
+
+# Obliczenie wariancji dla modeli
+var_add <- var(gdp_seasonally_adjusted_add, na.rm = TRUE)
+var_mult <- var(gdp_seasonally_adjusted_mult, na.rm = TRUE)
+
+# Wyniki wariancji
+cat("Wariancja (Addytywny):", var_add, "\n")
+cat("Wariancja (Multiplikatywny):", var_mult, "\n")
+
+# Test wyboru modelu na podstawie wariancji
+if (var_mult < var_add) {
+  cat("Model multiplikatywny jest lepszy.\n")
+} else {
+  cat("Model addytywny jest lepszy.\n")
+}
+
+# Dekompozycja dla inflacji
+inflation_data <- data.frame(
+  index = 1:length(results[[3]]$row_2),
+  inflation = results[[3]]$row_2
 )
 
-ggplot(interest_rate_data, aes(x = rate_1, y = rate_2)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(title = "Correlation between Interest Rates (Sheet 4)", 
-       x = "Interest Rate 1 (%)", y = "Interest Rate 2 (%)") +
-  theme_minimal()
+inflation_ts <- ts(inflation_data$inflation, start = c(2007, 1), frequency = 4)
+ts_plot(inflation_ts, title = "Inflation Trends in Poland (2007-2022)", 
+        Ytitle = "Inflation (Millions PLN)", Xtitle = "Year")
 
-cor(interest_rate_data$rate_1, interest_rate_data$rate_2, use = "complete.obs")
+inflation_components_add <- decompose(inflation_ts, type = "additive")
+inflation_components_mult <- decompose(inflation_ts, type = "multiplicative")
+
+plot(inflation_components_add)
+plot(inflation_components_mult)
+
+inflation_seasonally_adjusted_add <- inflation_ts - inflation_components_add$seasonal
+inflation_seasonally_adjusted_mult <- inflation_ts / inflation_components_mult$seasonal
+
+var_infl_add <- var(inflation_seasonally_adjusted_add, na.rm = TRUE)
+var_infl_mult <- var(inflation_seasonally_adjusted_mult, na.rm = TRUE)
+
+cat("Wariancja Inflacja (Addytywny):", var_infl_add, "\n")
+cat("Wariancja Inflacja (Multiplikatywny):", var_infl_mult, "\n")
+
+if (var_infl_mult < var_infl_add) {
+  cat("Model multiplikatywny jest lepszy dla inflacji.\n")
+} else {
+  cat("Model addytywny jest lepszy dla inflacji.\n")
+}
+
+
+
 
 # ============================================
 # Missing Data Analysis
